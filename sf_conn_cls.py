@@ -5,10 +5,10 @@ from cryptography.hazmat.primitives.asymmetric import rsa, dsa
 from cryptography.hazmat.primitives import serialization
 
 class VLFMSnowflakeConnection:
-    def __init__(self, user, account, private_key_path, private_key_passphrase_env_var, database, schema):
+    def __init__(self, user, account, private_key_path_env_var, private_key_passphrase_env_var, database, schema):
         self.user = user
         self.account = account
-        self.private_key_path = private_key_path
+        self.private_key_path = os.environ.get(private_key_path_env_var)
         self.private_key_passphrase_env_var = private_key_passphrase_env_var
         self.database = database
         self.schema = schema
