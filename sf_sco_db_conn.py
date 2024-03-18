@@ -6,10 +6,15 @@ from cryptography.hazmat.primitives.asymmetric import dsa
 from cryptography.hazmat.primitives import serialization
 import sys
 
+    
+#base_dir = os.environ['base_dir']
+#encryption_key_path = os.environ['encryption_key_path']
+
 
 sys.path.append('/elt/PyPkg/')
 from YAMLKeyPairManager import YAMLKeyPairManager
 manager = YAMLKeyPairManager('/elt/.syskey/kpmgr', '/elt/.syskey/encryption_key.key')
+#manager = YAMLKeyPairManager(base_dir, encryption_key_path)
 user=manager.retrieve_key_pair("SF_Connection_proc_acct")
 key_path=manager.retrieve_key_pair("SF_Connection_PRIVATE_KEY_PATH")
 
